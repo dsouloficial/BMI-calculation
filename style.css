@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --tt-heading: #0C3440;
+  --tt-label: #00453A;
+  --tt-input: #212529;
+  --ot-input: #02799D;
+  --bg-input: rgba(73, 80, 87, 0.3);
+  --tt-placeholder: rgba(73, 80, 87, 0.5);
+
+  --tt-button: white;
+  --bg-button: #02799D;
+  --bg-button-hover: #01475c;
+  
+  --bg-error: #F03E3E;
+  --tt-error: white;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #040924;
+}
+
+body, input, button {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.card {
+  padding: 4.8rem 6.4rem 6.4rem;
+  background: white;
+  max-width: 42.8rem;
+  margin-inline: auto;
+
+  box-shadow: 0 .2rem .4rem rgba(0,0,0,0,1);
+  border-radius: .6rem;
+}
+
+.title {
+  font-size: 3.2rem;
+  line-height: 4rem;
+  color: var(--tt-heading);
+
+}
+
+form {
+  width: 30rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+form label {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--tt-label);
+}
+
+form input {
+  width: 100%;
+  border: 1px solid var(--bd-input);
+  background-color: var(--bg-input);
+  padding: 1.6rem;
+  border-radius: .4rem;
+}
+
+form input:focus {
+  outline: 2px solid var(--ot-input);
+}
+
+.input-wrapper +.input-wrapper {
+  margin-top: 1.6rem;
+}
+
+form button {
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  width: 100%;
+
+  border-radius: .4rem;
+  border: none;
+  background-color: var(--bg-button);
+  color: var(--tt-button);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+  transform: background .3s;
+}
+
+form button:hover {
+  background: var(--bg-button-hover)
+}
+/*modal*/
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  background:rgba(0, 0, 0, 0.7);
+
+  display: grid;
+  place-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal button {
+  background: none;
+  border: none;
+
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+
+  cursor: pointer;
+
+  transition: transform .3s;
+}
+
+.modal button:hover {
+  transform: scale(1.1);
+}
+
+.alert-error.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alert-error {
+  position: absolute;
+  background-color: var(--bg-error);
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--tt-error);
+  padding: .8rem 0;
+  font-weight: bold;
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: transform .5s;
+}
